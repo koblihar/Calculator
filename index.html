@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="calculator">
+            <div class="row-input">
+                <input spellcheck="false" type="text" name="" id="input">
+                <button onclick="backSpace()" class="btn-backspace">⌫</button>
+            </div>
+            
+
+            <div class="col1">
+                <div class="row">
+                    <button onclick="btnClicked(event)" class="7 btn">7</button>
+                    <button onclick="btnClicked(event)" class="8 btn">8</button>
+                    <button onclick="btnClicked(event)" class="9 btn">9</button>
+                    <button onclick="btnClicked(event)" class="+ btn"> + </button>
+                </div>
+                
+                <div class="row">
+                    <button onclick="btnClicked(event)" class="4 btn">4</button>
+                    <button onclick="btnClicked(event)" class="5 btn">5</button>
+                    <button onclick="btnClicked(event)" class="6 btn">6</button>
+                    <button onclick="btnClicked(event)" class="- btn"> - </button>
+                </div>
+    
+                <div class="row">
+                    <button onclick="btnClicked(event)" class="1 btn">1</button>
+                    <button onclick="btnClicked(event)" class="2 btn">2</button>
+                    <button onclick="btnClicked(event)" class="3 btn">3</button>
+                    <button onclick="btnClicked(event)" class="times btn"> * </button>
+                </div>
+    
+                <div class="row">
+                    <button onclick="btnClicked(event)" class="0 btn">0</button>
+                    <button onclick="btnClicked(event)" class="dot btn">.</button>
+                    <button onclick="reset()" class="c btn">c</button>
+                    <button onclick="btnClicked(event)" class="devided btn"> / </button>
+                </div>
+
+                <div class="row">
+                    <button onclick="btnClicked(event)" class="opening-bracket btn">(</button>
+                    <button onclick="btnClicked(event)" class="closing-bracket btn">)</button>
+                    <button onclick="squared()"class="squared btn">x<sup>2</sup></button>
+                    <button onclick="calculate()" class="= btn">=</button>
+                </div>
+
+                <div class="row">
+                    <button onclick="power()" class="btn">x<sup>y</sup></button>
+                    <button onclick="btnClicked(event)" class="btn square-root">√</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

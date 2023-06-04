@@ -1,8 +1,6 @@
 let input = document.getElementById("input")
 let row = document.querySelectorAll("row")
-let valuesInput = ""
 writable = true
-
 
 function btnClicked(event) {
     if (writable == true){
@@ -11,22 +9,30 @@ function btnClicked(event) {
         var btnText = clicked.innerHTML
 
         // přidá číslo nebo + - () do stringu, který se bude vypisovat do input fieldu
+        valuesInput = getValue()
         valuesInput += btnText
         input.value = valuesInput
     } 
 }
 
+function getValue() {
+    let valuesInput = document.getElementById("input").value
+    return valuesInput
+}
+
 // tlačítko na druhou
 function squared() {
     if (writable == true) {
+        valuesInput = getValue()
         valuesInput += "^2"
         input.value = valuesInput
     }
 }
 
 // tlačítko na y
-function power() {
+function powered() {
     if (writable == true) {
+        valuesInput = getValue()
         valuesInput += "^"
         input.value = valuesInput
     }
@@ -50,7 +56,7 @@ function reset() {
 
 // překlad ^ na ** a překlad √ aby fungoval výpočet
 function Translate() {
-    valuesInput = input.value
+    valuesInput = getValue()
     let translated = valuesInput.replace(/\^/g, "**")
     if (translated.includes("√")) {
         translated = Squared(translated)
@@ -61,7 +67,6 @@ function Translate() {
 
 
 function Squared(expression) {
-    let sqrtRegex = "" // regulární výraz pro hledání symbolu odmocniny (√) s číslem
     let squared = expression.replace(/√(\d+)/g, function(match, number) {
       return Math.sqrt(parseInt(number, 10))
     });
@@ -74,6 +79,9 @@ function calculate(){
     try {
         valuesInput = eval(Translate())
         input.value = valuesInput
+        console.log(valuesInput)
+        console.log(writable)
+        writable = true
     } catch (error) {
         valuesInput = "Error"
         input.value = valuesInput
@@ -82,10 +90,13 @@ function calculate(){
     }
 }
 
-// mazání v políčku pro v stup 
+// mazání v políčku pro vstup 
 function backSpace(){
     if (writable == true){
-        valuesInput = valuesInput.slice(0, -1)
+        input = document.getElementById("input")
+        valuesInput = input.value
+        console.log(valuesInput)
+        valuesInput = valuesInput.substring(0,valuesInput.length -1)
         input.value = valuesInput
     }
 }
